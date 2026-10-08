@@ -223,3 +223,4 @@ Manual answer checks: WFH policy, annual leave, onboarding steps, product pricin
 - MiniLM runtime model: https://ollama.com/library/all-minilm
 - Chroma configuration: https://docs.trychroma.com/docs/collections/configure
 - Open WebUI license: https://docs.openwebui.com/license/
+"# local-rag-chat" 
