@@ -1,0 +1,38 @@
+services:
+  ollama:
+    image: ${OLLAMA_IMAGE:-ollama/ollama:latest}
+    restart: unless-stopped
+    environment:
+      OLLAMA_NO_CLOUD: "1"
+    volumes:
+      - ollama:/root/.ollama
+    # No host port: only the app can reach this through the compose network.
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - ollama
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      RAG_API_KEY: ${RAG_API_KEY:?Run python scripts/setup.py first}
+      CHAT_MODEL: ${CHAT_MODEL:-qwen3:4b}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-all-minilm:latest}
+      MAX_DISTANCE: ${MAX_DISTANCE:-0.9}
+      OLLAMA_BASE_URL: http://ollama:11434
+      DATA_DIR: /data
+    volumes:
+      - rag-data:/data
+      - ./data/documents:/data/documents:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+volumes:
+  ollama:
+  rag-data:
