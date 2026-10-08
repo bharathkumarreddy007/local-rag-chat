@@ -224,3 +224,8 @@ Manual answer checks: WFH policy, annual leave, onboarding steps, product pricin
 - Chroma configuration: https://docs.trychroma.com/docs/collections/configure
 - Open WebUI license: https://docs.openwebui.com/license/
 "# local-rag-chat" 
+
+<img width="1473" height="752" alt="image" src="https://github.com/user-attachments/assets/9b39910a-8d96-4924-bd39-329e0ac15df8" />
+<img width="1681" height="1007" alt="image" src="https://github.com/user-attachments/assets/784dc8ab-676a-4a21-bfab-f7a86f36cf02" />
+<img width="748" height="738" alt="image" src="https://github.com/user-attachments/assets/b9860d91-426a-465f-b26d-d67b43f6a741" />
+
